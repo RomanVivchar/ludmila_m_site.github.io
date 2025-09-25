@@ -22,7 +22,7 @@
         <a href="#faq">FAQ</a>
         <a href="#contacts">Контакты</a>
       </nav>
-      <a class="btn btn--primary btn--small" href="#diagnostics">Начать с диагностики</a>
+      <a class="btn btn--primary btn--small" href="#contacts">Начать с диагностики</a>
     </div>
   </header>
 
@@ -39,14 +39,22 @@
             <a class="btn btn--ghost" href="#products">Посмотреть продукты</a>
           </div>
         </div>
-        <div class="hero__media placeholder placeholder--portrait" aria-label="Портрет — заглушка"></div>
+        <picture class="hero__media" aria-label="Портрет — Hero">
+          <source srcset="images/IMG_1677.jpg" type="image/jpg">
+          <img src="images/IMG_1677.jpg" alt="Людмила Малахова" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 45%;border-radius:14px;display:block;">
+        </picture>
       </div>
     </section>
+
+    
 
     <!-- About -->
     <section id="about" class="section section--muted about">
       <div class="container grid grid--2">
-        <div class="about__media placeholder placeholder--portrait"></div>
+        <picture class="about__media">
+          <source srcset="images/IMG_2950.jpg" type="image/jpg">
+          <img src="images/IMG_2950.jpg" alt="Людмила Малахова — обо мне" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 50%;border-radius:14px;display:block;">
+        </picture>
         <div class="about__content">
           <h2>Обо мне</h2>
           <p class="sublead">✨ 25 лет научных изысканий ради одной цели — твоей новой реальности</p>
@@ -73,7 +81,7 @@
             </div>
             <p>Утончённое и быстрое решение, когда нужно освободиться от неприятных обременяющих эмоций. Верни лёгкость и радость за несколько минут.</p>
             <div class="card__actions">
-              <a class="btn btn--primary" href="#">Получить детокс — 10 €</a>
+              <a class="btn btn--primary" onclick="openMessengerModal('Здравствуйте! Я хочу получить эмоциональный детокс за 5 минут!')">Получить детокс - 10 €</a>
             </div>
           </article>
 
@@ -83,7 +91,7 @@
             </div>
             <p>Элегантная практика для поддержания связи с корнями: уверенность, устойчивость и внутренний ресурс, когда это нужно.</p>
             <div class="card__actions">
-              <a class="btn btn--primary" href="#">Получить Roots Energy — 10 €</a>
+              <a class="btn btn--primary" onclick="openMessengerModal('Здравствуйте! Я хочу получить Roots Energy!')">Получить Roots Energy - 10 €</a>
             </div>
           </article>
 
@@ -93,7 +101,7 @@
             </div>
             <p>Встреча для ясности: разбираем ситуацию, выявляем причины и формируем маршрут изменений. Точка старта трансформации.</p>
             <div class="card__actions">
-              <a class="btn btn--contrast" href="#contacts">Сделать первый шаг — 50 €</a>
+              <a class="btn btn--contrast" onclick="openMessengerModal('Здравствуйте! Я хочу сделать первый шаг!')">Сделать первый шаг - 50 €</a>
             </div>
           </article>
 
@@ -103,7 +111,7 @@
             </div>
             <p>Быстрая глубокая трансформация за 1,5 часа. Без боли и бесконечных разговоров — выходишь в новом состоянии, лёгком и гармоничном.</p>
             <div class="card__actions">
-              <a class="btn btn--primary" href="#contacts">Записаться на сессию — 500 €</a>
+              <a class="btn btn--primary" onclick="openMessengerModal('Здравствуйте! Я хочу записаться на сессию!')">Записаться на сессию - 500 €</a>
             </div>
           </article>
 
@@ -113,7 +121,7 @@
             </div>
             <p>Серия сессий для переписывания внутреннего сценария и роста результатов в ключевых сферах: отношения, энергия, состояние.</p>
             <div class="card__actions">
-              <a class="btn btn--primary" href="#contacts">Записаться — 1500 €</a>
+              <a class="btn btn--primary" onclick="openMessengerModal('Здравствуйте! Я хочу записаться на трансформацию реальности за месяц!')">Записаться - 1500 €</a>
             </div>
           </article>
 
@@ -123,7 +131,7 @@
             </div>
             <p>Самый эксклюзивный формат: 8+ индивидуальных сессий, ежедневная поддержка и полугодовое сопровождение. Глубокая системная трансформация.</p>
             <div class="card__actions">
-              <a class="btn btn--contrast" href="#contacts">Получить VIP-программу — 20 000 €</a>
+              <a class="btn btn--contrast" onclick="openMessengerModal('Здравствуйте! Я хочу получить VIP-программу!')">Получить VIP-программу - 20 000 €</a>
             </div>
           </article>
         </div>
@@ -134,22 +142,71 @@
     <section id="testimonials" class="section testimonials section--muted">
       <div class="container">
         <h2>Отзывы</h2>
-        <div class="video-grid">
-          <div class="video-card">
-            <div class="placeholder placeholder--video" aria-label="Видео-отзыв — заглушка"></div>
-            <p>«У меня ушёл страх и вернулось ощущение лёгкости. Теперь я снова чувствую радость и могу дышать полной грудью!»</p>
+        <div class="carousel" data-carousel>
+          <button class="carousel__btn carousel__btn--prev" aria-label="Предыдущие">‹</button>
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7336.MP4"></video>
+                <p>Решились давние вопросы со здоровьем и психикой — стало спокойно и стабильно.</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7335.MP4"></video>
+                <p>Вернулась энергия и интерес к жизни без чувства давления.</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7334.MP4"></video>
+                <p>Энергетика собралась: чувствую силу, ясность и устойчивый внутренний поток</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7333.MP4"></video>
+                <p>Точечно проработали запрос — новая внутренняя настройка держится</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7332.MP4"></video>
+                <p>Встала на землю: уверенность и опора внутри — ощущаю силу</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7331.MP4"></video>
+                <p>За 1.5 месяца поддержки: стабильно, уверенно, жизнь наконец пошла в плюс</p>
+              </div>
+            </div>
           </div>
-          <div class="video-card">
-            <div class="placeholder placeholder--video"></div>
-            <p>«После работы я впервые за долгое время почувствовала настоящую свободу. Словно сбросила огромный груз и увидела жизнь заново.»</p>
-          </div>
-          <div class="video-card">
-            <div class="placeholder placeholder--video"></div>
-            <p>«Жизнь стала гармоничнее и спокойнее, появилась ясность и энергия двигаться вперёд.»</p>
-          </div>
+          <button class="carousel__btn carousel__btn--next" aria-label="Следующие">›</button>
         </div>
-        <div class="align-center">
-          <a class="btn btn--ghost" href="#">Смотреть все отзывы в Instagram</a>
+        <div class="align-center testimonials__more">
+          <a class="btn btn--ghost" href="https://www.instagram.com/l.v.malahova/">Смотреть все отзывы в Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fit videos -->
+    <section id="fit" class="section">
+      <div class="container">
+        <h2>Подходит ли вам формат?</h2>
+        <div class="carousel" data-carousel>
+          <button class="carousel__btn carousel__btn--prev" aria-label="Предыдущие">‹</button>
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7340.MP4"></video>
+                <p>Короткое видео: почувствуйте мой способ работы</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7339.MP4"></video>
+                <p>Как проходит встреча: кратко и по делу</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7338.MP4"></video>
+                <p>Для кого этот подход?</p>
+              </div>
+              <div class="video-card carousel__item">
+                <video class="video" controls preload="metadata" src="videos/IMG_7337.MP4"></video>
+                <p>Какой формат подходит Вам?</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel__btn carousel__btn--next" aria-label="Следующие">›</button>
         </div>
       </div>
     </section>
@@ -181,19 +238,20 @@
 
     <!-- Contacts -->
     <section id="contacts" class="section contacts section--muted">
-      <div class="container grid grid--2">
+      <div class="container grid grid--2" >
         <div>
           <h2>Контакты</h2>
           <ul class="contact-list">
-            <li><strong>Instagram:</strong> <a href="#">@l.v.malahova</a></li>
-            <li><strong>Email:</strong> <a href="mailto:example@mail.com">example@mail.com</a></li>
-            <li><strong>Telegram / WhatsApp:</strong> <a href="#">+00 000 000 00 00</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/l.v.malahova/">@l.v.malahova</a></li>
+            <li><strong>Email:</strong> <a href="mailto:milamalahova@yahoo.com">milamalahova@yahoo.com</a></li>
+            <li><strong>Telegram / WhatsApp:</strong> <a href="https://t.me/lvmalahova">@lvmalahova</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/+79370862719">+79370862719</a></li>
           </ul>
           <div class="cta-row">
-            <a class="btn btn--primary" href="#">Записаться на консультацию</a>
+            <a class="btn btn--primary" onclick="openMessengerModal('Здравствуйте! Я хочу записаться на консультацию.')">Записаться на консультацию</a>
           </div>
         </div>
-        <form class="contact-form" action="#" method="post">
+        <!-- <form class="contact-form" action="#" method="post">
           <div class="form-row">
             <label for="name">Имя</label>
             <input id="name" name="name" type="text" placeholder="Ваше имя" required>
@@ -212,8 +270,8 @@
               <span>Согласен с политикой конфиденциальности</span>
             </label>
             <button class="btn btn--primary" type="submit">Отправить</button>
-          </div>
-        </form>
+          </div> -->
+        <!-- </form> -->
       </div>
     </section>
 
@@ -221,7 +279,7 @@
     <section class="section final-cta">
       <div class="container final-cta__inner">
         <h2>Твоя новая реальность начинается сегодня. Сделай первый шаг к трансформации прямо сейчас.</h2>
-        <a class="btn btn--contrast" href="#contacts">Начать трансформацию</a>
+        
       </div>
     </section>
   </main>
@@ -230,14 +288,55 @@
     <div class="container footer-inner">
       <div>© <span id="year"></span> Людмила Малахова</div>
       <div class="footer-links">
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Публичная оферта</a>
+        
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script1.js"></script>
+
+    <!-- Модальное окно выбора мессенджера -->
+  <div id="messengerModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Выберите удобный мессенджер</h3>
+        <button class="modal-close" onclick="closeMessengerModal()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        
+        
+        <div class="messenger-buttons">
+          <a href="#" id="telegramLink" class="messenger-btn telegram-btn">
+            <span class="messenger-icon">
+                <img src="icons/icons8-telegram-48.png" alt="Telegram" width="32" height="32">
+            </span>
+            <span class="messenger-text">
+              <strong>Telegram</strong>
+              <span>Быстрый отклик</span>
+            </span>
+          </a>
+          
+          <a href="#" id="whatsappLink" class="messenger-btn whatsapp-btn">
+            <span class="messenger-icon" >
+                <img src="icons/icons8-whatsapp-48.png" alt="WhatsApp" width="32" height="32">
+            </span>
+            <span class="messenger-text">
+              <strong>WhatsApp</strong>
+              <span>Популярный выбор</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn--ghost" onclick="closeMessengerModal()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
+
 
 
